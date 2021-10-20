@@ -29,5 +29,18 @@ namespace Middleware_I.Extensions
         {
             return builder.UseMiddleware<MyCookiesMiddleware>();
         }
+
+        public static List<IApplicationBuilder> UseMyMiddlewares(this IApplicationBuilder builder)
+        {
+            List<IApplicationBuilder> FirstFolder = new List<IApplicationBuilder>();
+
+            FirstFolder.Add(builder.UseMiddleware<MyErrorHandlingMiddleware>());
+            FirstFolder.Add(builder.UseMiddleware<MyContextItemMiddleware>());
+            FirstFolder.Add(builder.UseMiddleware<MyCookiesMiddleware>());
+            FirstFolder.Add(builder.UseMiddleware<MyAutheticationMiddleware>());
+            FirstFolder.Add(builder.UseMiddleware<MyRoutingMiddleware>());
+
+            return FirstFolder;
+        }
     }
 }

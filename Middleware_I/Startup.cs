@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Middleware_I.Extensions;
+using Middleware_I.Middlewares2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,11 @@ namespace Middleware_I
     {
         public void Configure(IApplicationBuilder app)
         {
-            app.UseMyErrorHandling();
+            app.BuildRoute();
 
-            app.UseMyContextItem();
+            app.UseMyMiddlewares();
 
-            app.UseMyCookiesMiddleware();
-
-            app.UseMyAuthentication();
-            app.UseMyRouting();
+            
         }
     }
 }
