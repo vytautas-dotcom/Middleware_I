@@ -16,6 +16,11 @@ namespace Middleware_I
         public void Configure(IApplicationBuilder app)
         {
             app.UseMyErrorHandling();
+
+            app.UseMyContextItem();
+
+            app.UseMyCookiesMiddleware();
+
             app.UseMyAuthentication();
             app.UseMyRouting();
         }

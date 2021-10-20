@@ -21,5 +21,13 @@ namespace Middleware_I.Extensions
         {
             return builder.UseMiddleware<MyErrorHandlingMiddleware>();
         }
+        public static IApplicationBuilder UseMyContextItem(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<MyContextItemMiddleware>();
+        }
+        public static IApplicationBuilder UseMyCookiesMiddleware(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<MyCookiesMiddleware>();
+        }
     }
 }

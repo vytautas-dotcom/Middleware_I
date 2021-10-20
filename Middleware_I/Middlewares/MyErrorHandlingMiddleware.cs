@@ -18,11 +18,11 @@ namespace Middleware_I.Middlewares
 
             if (context.Response.StatusCode == 403)
             {
-                await context.Response.WriteAsync("Access denied");
+                await context.Response.WriteAsync($"{context.Items["Error403"]}");
             }
             else if (context.Response.StatusCode == 404)
             {
-                await context.Response.WriteAsync("Not found");
+                await context.Response.WriteAsync($"{context.Items["Error404"]}");
             }
         }
     }

@@ -13,12 +13,17 @@ namespace Middleware_I.Middlewares
 
         public async Task Invoke(HttpContext context)
         {
+            string name;
+            context.Request.Cookies.TryGetValue("name", out name);
+
             if (context.Request.Path.Value.ToLower() == "/index")
             {
+                await context.Response.WriteAsync($"Hello, {name}");
                 await context.Response.WriteAsync("This is the Index Page");
             }
             else if(context.Request.Path.Value.ToLower() == "/about")
             {
+                await context.Response.WriteAsync($"Hello, {name}");
                 await context.Response.WriteAsync("This is the About Page");
             }
             else
